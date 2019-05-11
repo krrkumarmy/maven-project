@@ -1,9 +1,11 @@
  pipeline {
-		any agent {
-				stages {
+		agent any 
+			stages 	{
 						stage ('SCM checkout') {
 							git 'https://github.com/krrkumarmy/maven-project.git' }
+				}
 						
+					{	
 						stage ('Compile Source Code') {
 							steps{ 
 									withMaven( Maven : 'LocalMaven') {
@@ -13,25 +15,25 @@
 										}
 						stage (' Test the code') {
 							steps {
-									withMaven ( Maven : 'LocalMaven') 
+									withMaven ( Maven : 'LocalMaven') {
 									    sh 'mvn test'
-										}
+										}}
 									}
 						stage ('package the code') {
 							steps {
-									withMaven ( Maven : 'LocalMaven')
+									withMaven ( Maven : 'LocalMaven'){
 										sh 'mvn package'
-										}
+										} }
 									}
 						stage ('install it') {
 							steps {
-									withMaven (Maven : 'LocalMaven')
+									withMaven (Maven : 'LocalMaven'){
 									 sh 'mvn install'
 									 }
 									}
-									
+									}
 				
 				
 				}
 			}
-		}	
+			
