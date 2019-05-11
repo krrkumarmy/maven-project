@@ -8,26 +8,26 @@
 					{	
 						stage ('Compile Source Code') {
 							steps{ 
-									withMaven( Maven : 'localMaven') {
+									withMaven( maven : 'localMaven') {
 										sh 'mvn compile'
 										}
 										}
 										}
 						stage (' Test the code') {
 							steps {
-									withMaven ( Maven : 'localMaven') {
+									withMaven ( maven : 'localMaven') {
 									    sh 'mvn test'
 										}}
 									}
 						stage ('package the code') {
 							steps {
-									withMaven ( Maven : 'localMaven'){
+									withMaven ( maven : 'localMaven'){
 										sh 'mvn package'
 										} }
 									}
 						stage ('install it') {
 							steps {
-									withMaven (Maven : 'localMaven'){
+									withMaven (maven : 'localMaven'){
 									 sh 'mvn install'
 									 }
 									}
