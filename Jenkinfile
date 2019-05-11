@@ -32,7 +32,12 @@
 									 }
 									}
 									}
-				
+						stage ('deploy on tomcat') {
+							steps {
+									sshagent(['57f7b62e-b987-4aa0-a4cf-06b7e2dac4d5']) {
+									sh 'ssh -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.36.22:/var/lib/tomcat/webapps'  }
+									}
+									}
 				
 				}
 			}
