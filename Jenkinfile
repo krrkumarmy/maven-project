@@ -2,7 +2,7 @@
 		anyagent {
 				stages {
 						stage ('SCM checkout') {
-							git 'Github URL' }
+							git 'https://github.com/krrkumarmy/maven-project.git' }
 						
 						stage ('Compile Source Code') {
 							steps{ 
@@ -30,7 +30,7 @@
 									 }
 									}
 									
-				
+				}
 				
 				}
 			}
