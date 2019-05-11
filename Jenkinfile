@@ -1,0 +1,37 @@
+ pipeline {
+		anyagent {
+				stages {
+						stage ('SCM checkout') {
+							git 'Github URL' }
+						
+						stage ('Compile Source Code') {
+							steps{ 
+									withMaven( Maven : 'LocalMaven') {
+										sh 'mvn compile'
+										}
+										}
+										
+						stage (' Test the code') {
+							steps {
+									withMaven ( Maven : 'LocalMaven') 
+									    sh 'mvn test'
+										}
+									}
+						stage ('package the code') {
+							steps {
+									withMaven ( Maven : 'LocalMaven')
+										sh 'mvn package'
+										}
+									}
+						stage ('install it') {
+							steps {
+									withMaven (Maven : 'LocalMaven')
+									 sh 'mvn install'
+									 }
+									}
+									
+				
+				
+				}
+			}
+		}	
