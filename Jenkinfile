@@ -10,7 +10,7 @@
 										sh 'mvn compile'
 										}
 										}
-										
+										}
 						stage (' Test the code') {
 							steps {
 									withMaven ( Maven : 'LocalMaven') 
@@ -30,7 +30,7 @@
 									 }
 									}
 									
-				}
+				
 				
 				}
 			}
